@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventConnect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>EventConnect</h1>
+        <nav>
+            <button onclick="showPage('home')">Home</button>
+            <button onclick="showPage('events')">Events</button>
+            <button onclick="showPage('registration')">Registration</button>
+        </nav>
+    </header>
+
+    <section id="home" class="page active">
+        <h2>Welcome to EventConnect</h2>
+        <p>Discover and connect with a wide range of events...</p>
+    </section>
+
+    <section id="events" class="page">
+        <h2>Upcoming Events</h2>
+        <ul id="eventList">
+            <!-- Event items will be dynamically added here -->
+        </ul>
+    </section>
+
+    <section id="registration" class="page">
+        <h2>Event Registration</h2>
+        <form id="registrationForm">
+            <!-- Registration form content will be dynamically added here -->
+            <button type="button" onclick="register()">Register</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Contact us at: contact@eventconnect.com</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
