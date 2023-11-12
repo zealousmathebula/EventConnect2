@@ -1,45 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EventConnect</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
     <header>
         <h1>EventConnect</h1>
-        <nav>
-            <button onclick="showPage('home')">Home</button>
-            <button onclick="showPage('events')">Events</button>
-            <button onclick="showPage('registration')">Registration</button>
-        </nav>
     </header>
 
-    <section id="home" class="page active">
-        <h2>Welcome to EventConnect</h2>
-        <p>Discover and connect with a wide range of events...</p>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Events</a>
+        <a href="#">Registration</a>
+        <a href="#">Speakers</a>
+        <a href="#">Venue</a>
+        <a href="#">FAQ</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section id="homepage">
+        <h2>Discover Engaging Events and Inspiring Speakers</h2>
+        <p>Welcome to EventConnect, the premier platform for exploring and connecting with a wide range of events. Whether you're seeking professional development, industry insights, or networking opportunities, EventConnect offers a diverse selection of events tailored to your interests. Discover upcoming events, browse renowned speakers, and join our community of knowledge seekers. Together, let's create extraordinary experiences that fuel growth and innovation.</p>
     </section>
 
-    <section id="events" class="page">
+    <section id="events">
         <h2>Upcoming Events</h2>
-        <ul id="eventList">
-            <!-- Event items will be dynamically added here -->
-        </ul>
+        <div class="event">
+            <img src="[Insert relevant event image]" alt="Event Image">
+            <h3>[Event title]</h3>
+            <p>Date: [Date]</p>
+            <p>Time: [Time]</p>
+            <p>Location: [Location]</p>
+            <p>Description: [Event description]</p>
+            <button onclick="registerForEvent('[Event title]')">Register</button>
+        </div>
+
+        <!-- Repeat the above event block for each event -->
     </section>
 
-    <section id="registration" class="page">
-        <h2>Event Registration</h2>
+    <section id="registration">
+        <h2>Secure Your Spot at Exciting Events</h2>
         <form id="registrationForm">
-            <!-- Registration form content will be dynamically added here -->
-            <button type="button" onclick="register()">Register</button>
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="selectedEvents">Select Events:</label>
+            <select id="selectedEvents" name="selectedEvents" multiple>
+                <!-- Events dynamically added here through JavaScript -->
+            </select>
+
+            <button type="button" onclick="submitRegistration()">Register</button>
         </form>
     </section>
 
     <footer>
-        <p>Contact us at: contact@eventconnect.com</p>
+        <p>&copy; 2023 EventConnect. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
