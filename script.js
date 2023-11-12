@@ -25,6 +25,13 @@ function goToHomePage() {
     // You can modify this to navigate using window.location or other methods
     alert("Navigating to the homepage");
 }
+// script.js
+function goToContactPage() {
+    window.location.href = "contact.html"; // Navigate to the contact page
+}
+
+// Attach event listener to the Contact button
+document.getElementById("contactButton").addEventListener("click", goToContactPage);
 
 // Attach event listeners to buttons
 document.getElementById("homeButton").addEventListener("click", goToHomePage);
