@@ -1,64 +1,29 @@
-const events = [
-    { id: 1, name: 'Conference A', date: '2023-12-01', location: 'City A', description: 'A great conference' },
-    { id: 2, name: 'Workshop B', date: '2023-12-15', location: 'City B', description: 'An informative workshop' },
+// Mock data for events (replace this with actual data from a database)
+const eventsData = [
+    { title: "Event 1", date: "2023-12-01", time: "10:00 AM", location: "Venue A", description: "Description for Event 1" },
+    { title: "Event 2", date: "2023-12-15", time: "02:00 PM", location: "Venue B", description: "Description for Event 2" },
     // Add more events as needed
 ];
 
-function showPage(pageId) {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(page => page.classList.remove('active'));
+// Populate events dropdown in registration form
+const eventsDropdown = document.getElementById("selectedEvents");
+eventsData.forEach(event => {
+    const option = document.createElement("option");
+    option.text = event.title;
+    eventsDropdown.add(option);
+});
 
-    const selectedPage = document.getElementById(pageId);
-    if (selectedPage) {
-        selectedPage.classList.add('active');
-    }
-
-    if (pageId === 'events') {
-        displayEvents();
-    } else if (pageId === 'registration') {
-        displayRegistrationForm();
-    }
+// Function to register for an event
+function registerForEvent(eventTitle) {
+    alert(`You are now registered for ${eventTitle}`);
 }
 
-function displayEvents() {
-    const eventList = document.getElementById('eventList');
-    eventList.innerHTML = '';
+// Function to handle registration form submission
+function submitRegistration() {
+    const fullName = document.getElementById("fullName").value;
+    const email = document.getElementById("email").value;
+    const selectedEvents = Array.from(eventsDropdown.selectedOptions).map(option => option.text);
 
-    events.forEach(event => {
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `
-            <strong>${event.name}</strong>
-            <p>Date: ${event.date}</p>
-            <p>Location: ${event.location}</p>
-            <p>${event.description}</p>
-        `;
-        eventList.appendChild(listItem);
-    });
-}
-
-function displayRegistrationForm() {
-    const registrationForm = document.getElementById('registrationForm');
-    registrationForm.innerHTML = '';
-
-    // You can customize the registration form fields here
-
-    // Example form fields:
-    registrationForm.innerHTML = `
-        <label for="eventName">Event Name:</label>
-        <select id="eventName" required>
-            ${events.map(event => `<option value="${event.id}">${event.name}</option>`).join('')}
-        </select>
-        <br>
-        <label for="fullName">Full Name:</label>
-        <input type="text" id="fullName" required>
-        <br>
-        <!-- Add more form fields as needed -->
-    `;
-}
-
-function register() {
-    // This is a placeholder function and would typically involve sending data to a server
-    // for storage and processing. In this example, we'll just display an alert.
-
-    alert('Registration successful!');
+    // Perform registration logic (you can send this data to a server using AJAX/fetch)
+    alert(`Registration Details:\nFull Name: ${fullName}\nEmail: ${email}\nSelected Events: ${selectedEvents.join(", ")}`);
 }
