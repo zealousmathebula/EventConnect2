@@ -36,3 +36,14 @@ document.getElementById("contactButton").addEventListener("click", goToContactPa
 // Attach event listeners to buttons
 document.getElementById("homeButton").addEventListener("click", goToHomePage);
 document.getElementById("registrationButton").addEventListener("click", submitRegistration);
+
+// script.js
+function loadPage(page) {
+    // Use AJAX or fetch to load the content of the selected page
+    fetch(page)
+        .then(response => response.text())
+        .then(content => {
+            document.getElementById('mainContent').innerHTML = content;
+        })
+        .catch(error => console.error('Error loading page:', error));
+}
