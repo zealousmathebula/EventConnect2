@@ -5,14 +5,6 @@ const eventsData = [
     // Add more events as needed
 ];
 
-// Populate events dropdown in registration form
-const eventsDropdown = document.getElementById("selectedEvents");
-eventsData.forEach(event => {
-    const option = document.createElement("option");
-    option.text = event.title;
-    eventsDropdown.add(option);
-});
-
 // Function to register for an event
 function registerForEvent(eventTitle) {
     alert(`You are now registered for ${eventTitle}`);
@@ -22,8 +14,18 @@ function registerForEvent(eventTitle) {
 function submitRegistration() {
     const fullName = document.getElementById("fullName").value;
     const email = document.getElementById("email").value;
-    const selectedEvents = Array.from(eventsDropdown.selectedOptions).map(option => option.text);
+    const selectedEvents = Array.from(document.getElementById("selectedEvents").selectedOptions).map(option => option.text);
 
     // Perform registration logic (you can send this data to a server using AJAX/fetch)
     alert(`Registration Details:\nFull Name: ${fullName}\nEmail: ${email}\nSelected Events: ${selectedEvents.join(", ")}`);
 }
+
+// Function to navigate to the homepage
+function goToHomePage() {
+    // You can modify this to navigate using window.location or other methods
+    alert("Navigating to the homepage");
+}
+
+// Attach event listeners to buttons
+document.getElementById("homeButton").addEventListener("click", goToHomePage);
+document.getElementById("registrationButton").addEventListener("click", submitRegistration);
